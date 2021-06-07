@@ -23,3 +23,26 @@ function getDBConnexion()
 
     return $db;
 }
+
+
+function findAll(): array
+{
+    $db = getDBConnexion();
+    $request = $db->query('SELECT id, title, LEFT(content, 100) as content, user, date FROM post');
+    $request->setFetchMode(PDO::FETCH_ASSOC);
+    $posts = $request->fetchAll();
+    $request->closeCursor();
+    return $posts;
+}
+
+function findpostID($id)
+{
+    $db = getDBConnexion();
+
+    $request = $db->prepare('SELECT * FROM post WHERE id=?');
+    $request->execute([$_GET['id']]);
+    $request->setFetchMode(PDO::FETCH_ASSOC);
+    $post = $request->fetch();
+    $request->closeCursor();
+    return $post;
+}
