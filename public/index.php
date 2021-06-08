@@ -8,10 +8,9 @@ try {
         home();
     } elseif ($page === 'post.show') {
 
-        require dirname(__DIR__) . '/model/postRepository.php';
-        $post = findOnebyID($_GET['id']);
+        require dirname(__DIR__) . '/controller/postController.php';
 
-        require dirname(__DIR__) . '/view/post/show.php';
+        show();
     } elseif ($page === 'user.connect') {
         require dirname(__DIR__) . '/controller/userController.php';
         userConnect();
