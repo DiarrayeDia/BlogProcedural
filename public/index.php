@@ -44,7 +44,11 @@ try {
 
         require 'show.php';
     } elseif ($page === 'user.connect') {
+<<<<<<< Updated upstream
         require 'connectionForm.php';
+=======
+        require dirname(__DIR__) . '/view/user/connectionForm.php';
+>>>>>>> Stashed changes
     } else {
         throw new Exception('404');
     }
