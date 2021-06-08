@@ -8,21 +8,21 @@ try {
         require dirname(__DIR__) . '/model/postRepository.php';
         $posts = findAll();
 
-        require dirname(__DIR__) . 'post/home.php';
+        require dirname(__DIR__) . '/view/post/home.php';
     } elseif ($page === 'post.show') {
 
-        require dirname(__DIR__) . 'model/postRepository.php';
+        require dirname(__DIR__) . '/model/postRepository.php';
         $post = findpostID($_GET['id']);
 
-        require dirname(__DIR__) . 'post/show.php';
+        require dirname(__DIR__) . '/view/post/show.php';
     } elseif ($page === 'user.connect') {
-        require dirname(__DIR__) . 'user/connectionForm.php';
+        require dirname(__DIR__) . '/user/connectionForm.php';
     } else {
         throw new Exception('404');
     }
 } catch (Exception $e) {
-    require dirname(__DIR__) . 'view/error/error404.php';
+    require dirname(__DIR__) . '/view/error/error404.php';
 }
 $content = ob_get_clean();
 
-require dirname(__DIR__) . 'base.php';
+require dirname(__DIR__) . '/view/base.php';
