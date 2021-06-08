@@ -12,7 +12,7 @@ try {
     } elseif ($page === 'post.show') {
 
         require dirname(__DIR__) . '/model/postRepository.php';
-        $post = findpostID($_GET['id']);
+        $post = findOnebyID($_GET['id']);
 
         require dirname(__DIR__) . '/view/post/show.php';
     } elseif ($page === 'user.connect') {

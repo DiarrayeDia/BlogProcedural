@@ -35,7 +35,7 @@ function findAll(): array
     return $posts;
 }
 
-function findpostID($id)
+function findOnebyID($id)
 {
     $db = getDBConnexion();
 
