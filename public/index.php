@@ -2,13 +2,10 @@
 
 $page = isset($_GET['page']) ? $_GET['page'] : 'post.home';
 
-ob_start();
 try {
     if ($page === 'post.home') {
-        require dirname(__DIR__) . '/model/postRepository.php';
-        $posts = findAll();
-
-        require dirname(__DIR__) . '/view/post/home.php';
+        require dirname(__DIR__) . '/controller/postController.php';
+        home();
     } elseif ($page === 'post.show') {
 
         require dirname(__DIR__) . '/model/postRepository.php';
@@ -25,6 +22,3 @@ try {
     require dirname(__DIR__) . '/controller/errorController.php';
     error404();
 }
-$content = ob_get_clean();
-
-require dirname(__DIR__) . '/view/base.php';
