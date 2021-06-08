@@ -16,7 +16,7 @@ try {
 
         require dirname(__DIR__) . '/view/post/show.php';
     } elseif ($page === 'user.connect') {
-        require dirname(__DIR__) . '/view/user/connectionForm.php';
+        require dirname(__DIR__) . '/controller/userController.php';
     } else {
         throw new Exception('404');
     }
